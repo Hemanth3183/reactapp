@@ -24,24 +24,22 @@ steps:
   displayName: 'Copy files'
   inputs:
     sourceFolder: '$(System.DefaultWorkingDirectory)' 
-    Contents: |
-      '$(System.DefaultWorkingDirectory)/public/*'
-      '$(System.DefaultWorkingDirectory)/src/*'
-      '$(System.DefaultWorkingDirectory)/build/*'
-      '$(System.DefaultWorkingDirectory)/package.json'
+    Contents: '**/*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
  
-- task: ArchiveFiles@2
-  displayName: 'Archive files'
-  inputs:
-    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-    includeRootFolder: false
-    archiveType: zip
-    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
-    replaceExistingArchive: true
+#- task: ArchiveFiles@2
+#  displayName: 'Archive files'
+#  inputs:
+#    rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+#    includeRootFolder: false
+#    archiveType: zip
+#    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+#    replaceExistingArchive: true
  
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Build Artifacts'
   inputs: 
-    pathtoPublish: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+    pathtoPublish: $(Build.ArtifactStagingDirectory)
+
+
