@@ -24,7 +24,10 @@ steps:
   displayName: 'Copy files'
   inputs:
     sourceFolder: '$(System.DefaultWorkingDirectory)' 
-    Contents: '**/*'
+    Contents: |
+      **/*
+      !.git/**/*
+      !node_modules/**/*
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
  
