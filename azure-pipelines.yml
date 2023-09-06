@@ -23,8 +23,12 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy files'
   inputs:
-    sourceFolder: '$(System.DefaultWorkingDirectory)/build' 
-    Contents: '**/*'
+    sourceFolder: '$(System.DefaultWorkingDirectory)' 
+    Contents: |
+      'public/*'
+      'src/*'
+      'build/*'
+      'package.json'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
  
