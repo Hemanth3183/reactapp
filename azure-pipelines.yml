@@ -25,10 +25,10 @@ steps:
   inputs:
     sourceFolder: '$(System.DefaultWorkingDirectory)' 
     Contents: |
-      'public/*'
-      'src/*'
-      'build/*'
-      'package.json'
+      '$(System.DefaultWorkingDirectory)/public/*'
+      '$(System.DefaultWorkingDirectory)/src/*'
+      '$(System.DefaultWorkingDirectory)/build/*'
+      '$(System.DefaultWorkingDirectory)/package.json'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
  
