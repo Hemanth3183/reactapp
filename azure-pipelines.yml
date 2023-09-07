@@ -27,7 +27,6 @@ steps:
     Contents: |
       **/*
       !.git/**/*
-      !node_modules/**/*
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
  
